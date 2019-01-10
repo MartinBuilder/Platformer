@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class sceneLoader : MonoBehaviour {
 
+    public int Scene;
     public Button PlayButton;
 
     void Start()
@@ -21,6 +22,6 @@ public class sceneLoader : MonoBehaviour {
 
     void TaskOnClick()
     {
-        SceneLoader(1);
+        SceneLoader(Scene);
     }
 }
