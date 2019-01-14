@@ -8,7 +8,7 @@ public class MouseController : MonoBehaviour {
 
     private float Mx = 0.0f;
     private float My = 0.0f;
-    
+    public GameObject Cam;
     // Use this for initialization
     void Start()
     {
@@ -19,11 +19,11 @@ public class MouseController : MonoBehaviour {
     void Update()
     {
 
-        Mx += speedH * Input.GetAxis("Mouse X");
+        Mx += speedH * Input.GetAxis("Mouse X")/2;
         My -= speedV * Input.GetAxis("Mouse Y");
 
-        transform.eulerAngles = new Vector3(My, Mx, 0.0f);
-    //player.transform.rotation = Quaternion.Euler(0, Mx, 0.0f);
+        transform.eulerAngles = new Vector3(0, Mx, 0.0f);
+       Cam.transform.rotation = Quaternion.Euler(My, Mx, 0.0f);
 
         Cursor.visible = false;
 
