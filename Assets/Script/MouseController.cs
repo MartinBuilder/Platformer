@@ -23,7 +23,8 @@ public class MouseController : MonoBehaviour {
         My -= speedV * Input.GetAxis("Mouse Y");
 
         transform.eulerAngles = new Vector3(0, Mx, 0.0f);
-       Cam.transform.rotation = Quaternion.Euler(My, Mx, 0.0f);
+        Cam.transform.rotation = Quaternion.Euler(My, Mx, 0.0f);
+     
 
         Cursor.visible = false;
 
