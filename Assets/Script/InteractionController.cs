@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseDrag : MonoBehaviour {
+public class InteractionController : MonoBehaviour {
     private GameObject hold;
     private void Start()
     {
@@ -12,7 +12,7 @@ public class MouseDrag : MonoBehaviour {
     {
         if (hold != null)
         {
-            hold.transform.position = transform.position;
+           hold.transform.position = transform.position;
         }
         if (Input.GetMouseButtonDown(1))
         { hold = null; }

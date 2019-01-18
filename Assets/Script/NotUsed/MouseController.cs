@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseController : MonoBehaviour {
+public class CamaraController : MonoBehaviour {
     public float speedH = 2.0f;
     public float speedV = 2.0f;
 
@@ -23,8 +23,12 @@ public class MouseController : MonoBehaviour {
         My -= speedV * Input.GetAxis("Mouse Y");
 
         transform.eulerAngles = new Vector3(0, Mx, 0.0f);
-        Cam.transform.rotation = Quaternion.Euler(My, Mx, 0.0f);
-     
+        if (Cam.transform.rotation.x >-10)
+        {
+            Cam.transform.rotation = Quaternion.Euler(My, Mx, 0.0f);
+
+        }
+
 
         Cursor.visible = false;
 
