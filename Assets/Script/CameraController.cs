@@ -9,44 +9,16 @@ public class CameraController : MonoBehaviour {
     private float Mx = 0.0f;
     private float My = 0.0f;
 
-    private float MxOld = 0.0f;
-    private float MyOld = 0.0f;
-
     public GameObject Cam;
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        MxOld = Mx;
-        MyOld = My;
+        Mx = Mathf.Min(90, Mathf.Max(-90, Mx + Input.GetAxis("Mouse Y")));
+        My -= speedV * Input.GetAxis("Mouse X")/2;
 
-        Mx += speedH * Input.GetAxis("Mouse X")/2;
-        My -= speedV * Input.GetAxis("Mouse Y");
-
-        transform.eulerAngles = new Vector3(0, Mx, 0.0f);
-        //print(Cam.transform.eulerAngles.x>=50);
-        //print(Cam.transform.localEulerAngles.x>-70);
-        if(Cam.transform.localEulerAngles.x >= 70 && Cam.transform.localEulerAngles.x <= 300)
-        {
-            Debug.Log("HIer mag je kijken");
-            if (Cam.transform.localEulerAngles.x > 70 && Cam.transform.localEulerAngles.x < 300)
-            {
-                Mx = MxOld;
-                My = MyOld;
-            }
-        }
-        Cam.transform.rotation = Quaternion.Euler(My, Mx, 0.0f);
-
-       
-
+        transform.eulerAngles = new Vector3(0, -My, 0.0f);
+        Cam.transform.rotation = Quaternion.Euler(-Mx, -My, 0.0f);
+        
         Cursor.visible = false;
-
     }
-
-
 }
