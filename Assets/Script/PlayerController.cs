@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    public float MovementSpeed = 6.0f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
+    [SerializeField] private float MovementSpeed = 6.0f;
+    [SerializeField] private float jumpSpeed = 8.0f;
+    [SerializeField] private float gravity = 20.0f;
 
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
