@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionController : MonoBehaviour {
-    private GameObject hold;
+public class InteractionController : MonoBehaviour
+{
+    [SerializeField] private GameObject temp;
+    private GameObject hold; 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -12,21 +14,26 @@ public class InteractionController : MonoBehaviour {
     {
         if (hold != null)
         {
-           hold.transform.position = transform.position;
+            hold.transform.position = temp.transform.position;
         }
         if (Input.GetMouseButtonDown(1))
-        { hold = null; }
+        {hold = null; }
 
-            if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        if (Physics.Raycast(transform.position, fwd, out hit))
-        {
-                if (hit.collider != null&& hold == null)
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
+            if (Physics.Raycast(transform.position, fwd, out hit))
+            {
+                if (hit.collider != null)
                 {
                     print("pickup");
-                    hold = hit.collider.gameObject;
+
+                    if (hit.collider.gameObject.tag == "Finish")
+                    {
+                        hold = hit.collider.gameObject;
+
+                    }
                 }
             }
         }
