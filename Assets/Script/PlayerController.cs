@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour {
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        
+
+
     }
 
     void Update()

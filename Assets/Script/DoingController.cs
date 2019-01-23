@@ -6,12 +6,7 @@ public class DoingController : MonoBehaviour {
     [SerializeField] private GameObject temp;
     public GameObject hold;
     public string tag;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
+  
 	void Update () {
 
         Doing();
@@ -35,10 +30,6 @@ void Doing()
                 if (Input.GetMouseButtonDown(1)) { hold = null; }
                 if (hold != null) { hold.transform.position = temp.transform.position; }break;
         }
-        
        
-        
-
-
     }
 }

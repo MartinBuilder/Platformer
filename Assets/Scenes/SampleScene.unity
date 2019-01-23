@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657975, g: 0.4964143, b: 0.57481766, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657916, g: 0.4964133, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -187,9 +187,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 326885452}
+  - component: {fileID: 326885449}
   - component: {fileID: 326885451}
   - component: {fileID: 326885450}
-  - component: {fileID: 326885449}
+  - component: {fileID: 326885453}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -265,6 +266,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326885453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326885448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7c6e089ca208d4b9b65f6d87885c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &509198752
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,9 +861,10 @@ GameObject:
   - component: {fileID: 1019801521}
   - component: {fileID: 1019801522}
   - component: {fileID: 1019801523}
+  - component: {fileID: 1019801524}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -969,6 +982,21 @@ MonoBehaviour:
   Cam: {fileID: 534669902}
   speedH: 2
   speedV: 2
+--- !u!54 &1019801524
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019801516}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1119615244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,7 +1650,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2076930564}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -2.5}
+  m_LocalPosition: {x: 0, y: 1.214, z: 1.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

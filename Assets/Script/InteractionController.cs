@@ -28,8 +28,12 @@ public class InteractionController : MonoBehaviour
                     switch (hit.collider.gameObject.tag) { 
                         case "PickUp": Do.hold = hit.collider.gameObject; Do.tag = hit.collider.tag; break;
                         case "Elevator":
-                            if (GameObject.FindWithTag("Elevator").GetComponent<Renderer>().material.color != Color.green){ Do.tag = hit.collider.tag + "UP";}
-                            else{ Do.tag = hit.collider.tag + "Down"; }break;}
+                            if (GameObject.FindWithTag("Elevator").GetComponent<Renderer>().material.color != Color.green)
+                            {
+                                elevator.tag = hit.collider.tag + "UP";
+                                Debug.Log(hit.collider.tag + "UP");
+                            }
+                            else{ elevator.tag = hit.collider.tag + "Down"; }break;}
 
               
                 }
