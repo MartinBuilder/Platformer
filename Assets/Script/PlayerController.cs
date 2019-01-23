@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
        
+       
         // Apply gravity
         moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
 

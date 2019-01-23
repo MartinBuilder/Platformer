@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
-    [SerializeField] private GameObject temp;
-    private GameObject hold; 
+   
+    private DoingController Do;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Do = GameObject.Find("DoingController").GetComponent<DoingController>();
+        
     }
     void FixedUpdate()
     {
-        if (hold != null)
-        {
-            hold.transform.position = temp.transform.position;
-        }
-        if (Input.GetMouseButtonDown(1))
-        {hold = null; }
-
+      
+ 
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -27,15 +24,17 @@ public class InteractionController : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    print("pickup");
 
-                    if (hit.collider.gameObject.tag == "Finish")
-                    {
-                        hold = hit.collider.gameObject;
+                    switch (hit.collider.gameObject.tag) { 
+                        case "PickUp": Do.hold = hit.collider.gameObject; Do.tag = hit.collider.tag; break;
+                        case "Elevator":
+                            if (GameObject.FindWithTag("Elevator").GetComponent<Renderer>().material.color != Color.green){ Do.tag = hit.collider.tag + "UP";}
+                            else{ Do.tag = hit.collider.tag + "Down"; }break;}
 
-                    }
+              
                 }
             }
+                    
         }
     }
 }

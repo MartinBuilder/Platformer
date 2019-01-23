@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Button
+  - Elevator
+  - PickUp
   layers:
   - Default
   - TransparentFX
