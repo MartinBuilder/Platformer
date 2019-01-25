@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    [SerializeField]  private GameObject Cam;
     [SerializeField]  private float speedH = 2.0f,speedV = 2.0f;
     private float Mx, My;
  
@@ -15,7 +14,7 @@ public class CameraController : MonoBehaviour
         My += speedV * Input.GetAxis("Mouse X");
 
         transform.eulerAngles = new Vector3(0, My, 0.0f);
-        Cam.transform.rotation = Quaternion.Euler(Mx, My, 0.0f);
+        this.gameObject.transform.GetChild(0).transform.rotation = Quaternion.Euler(Mx, My, 0.0f);
 
         Cursor.visible = false;
     }
