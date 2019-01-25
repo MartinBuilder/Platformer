@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class elevator : MonoBehaviour {
+public class PlatformMovementController : MonoBehaviour {
 
     public string tag;
     private string Go;
     private bool auto;
-    private GameObject Elevator;
+    private GameObject platform;
     private void Start()
     {
-        Elevator = transform.parent.gameObject;
+        platform = transform.parent.gameObject;
         auto = false;
     }
   
@@ -28,12 +28,12 @@ public class elevator : MonoBehaviour {
         switch (tag)
         {
             case "UpDown":
-                if (Go == "UP") { Elevator.transform.Translate(Vector3.up * Time.deltaTime); col.transform.Translate(Vector3.up * Time.deltaTime); }
-                else if (Go == "DOWN") { Elevator.transform.Translate(Vector3.down * Time.deltaTime); col.transform.Translate(Vector3.down * Time.deltaTime); }
+                if (Go == "UP") { platform.transform.Translate(Vector3.up * Time.deltaTime); col.transform.Translate(Vector3.up * Time.deltaTime); }
+                else if (Go == "DOWN") { platform.transform.Translate(Vector3.down * Time.deltaTime); col.transform.Translate(Vector3.down * Time.deltaTime); }
                 break;
             case "LeftRight":
-                if (Go == "LEFT") { Elevator.transform.Translate(Vector3.left * Time.deltaTime); col.transform.Translate(Vector3.left * Time.deltaTime); }
-                else if (Go == "RIGHT") { Elevator.transform.Translate(Vector3.right * Time.deltaTime); col.transform.Translate(Vector3.right * Time.deltaTime); }
+                if (Go == "LEFT") { platform.transform.Translate(Vector3.left * Time.deltaTime); }
+                else if (Go == "RIGHT") { platform.transform.Translate(Vector3.right * Time.deltaTime);  }
                 break;
         }
     }
@@ -50,12 +50,12 @@ public class elevator : MonoBehaviour {
             switch (tag)
             {
                 case "UpDown":
-                    if (Go == "UP") { Elevator.transform.Translate(Vector3.up * Time.deltaTime); }
-                    else if (Go == "DOWN") { Elevator.transform.Translate(Vector3.down * Time.deltaTime); }
+                    if (Go == "UP") { platform.transform.Translate(Vector3.up * Time.deltaTime); }
+                    else if (Go == "DOWN") { platform.transform.Translate(Vector3.down * Time.deltaTime); }
                     break;
             case "LeftRight":
-                if (Go == "LEFT") { Elevator.transform.Translate(Vector3.left * Time.deltaTime);}
-                else if (Go == "RIGHT") { Elevator.transform.Translate(Vector3.right * Time.deltaTime);}
+                if (Go == "LEFT") { platform.transform.Translate(Vector3.left * Time.deltaTime);}
+                else if (Go == "RIGHT") { platform.transform.Translate(Vector3.right * Time.deltaTime);}
                 break;
         }
 
@@ -66,12 +66,12 @@ public class elevator : MonoBehaviour {
         switch (tag)
         {
             case "UpDown":
-                if (Mathf.Round(Elevator.transform.position.y) == 0f) { Go = "UP"; }
-                else if (Mathf.Round(Elevator.transform.position.y) == 4f) { Go = "DOWN"; }
+                if (Mathf.Round(platform.transform.position.y) == 0f) { Go = "UP"; }
+                else if (Mathf.Round(platform.transform.position.y) == 4f) { Go = "DOWN"; }
                 break;
             case "LeftRight":
-                if (Mathf.Round(Elevator.transform.position.x) == 6f) { Go = "LEFT"; }
-                else if (Mathf.Round(Elevator.transform.position.x) == 4f) { Go = "RIGHT"; }
+                if (Mathf.Round(platform.transform.position.x) == 6f) { Go = "LEFT"; }
+                else if (Mathf.Round(platform.transform.position.x) == 4f) { Go = "RIGHT"; }
                 break;
         }
 

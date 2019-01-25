@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformMovementController : MonoBehaviour {
+public class elevator : MonoBehaviour {
 
     public string tag;
     private string Go;
