@@ -1270,7 +1270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: 
   auto: 0
-  distance: 0
+  Go: 
+  distance: -5
 --- !u!65 &1216946528
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1477,7 +1478,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1348069058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1427824320}
@@ -1497,6 +1498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: 
   auto: 0
+  Go: 
   distance: 0
 --- !u!65 &1348069061
 BoxCollider:
@@ -1723,6 +1725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: 
   auto: 0
+  Go: 
   distance: 0
 --- !u!1 &1663383064
 GameObject:

@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlatformMovementController : MonoBehaviour {
 
     public string tag;
-    private string Go;
     public bool auto;
     private GameObject platform;
     private float posY, posX;
+    [SerializeField] private string Go;
     [SerializeField] private float distance;
     private void Start()
     {
@@ -64,7 +64,7 @@ public class PlatformMovementController : MonoBehaviour {
                 break;
             case "LeftRight":
                 if (Mathf.Round(platform.transform.position.x) == posX) { Go = "LEFT"; }
-                else if (Mathf.Round(platform.transform.position.x) == (posX - distance)) { Go = "RIGHT"; }
+                else if (Mathf.Round(platform.transform.position.x) == (posX + distance)) { Go = "RIGHT"; }
                 break;
         }
 
