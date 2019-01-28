@@ -6,58 +6,51 @@ public class PlatformMovementController : MonoBehaviour {
 
     public string tag;
     private string Go;
-    private bool auto;
+    public bool auto;
     private GameObject platform;
+    private float posY, posX;
+    [SerializeField] private float distance;
     private void Start()
     {
         platform = transform.parent.gameObject;
         auto = false;
+        posY = Mathf.Round(platform.transform.position.y);
+        posX = Mathf.Round(platform.transform.position.x);
+        if (distance == 0) { distance = 3; }
+
+
     }
   
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider col)
     {
         print("Exit");
         auto = true;
-    
+        col.transform.parent = null;
+
     }
   
     private void OnTriggerStay(Collider col)
     {
     
         auto = false;
-        switch (tag)
-        {
-            case "UpDown":
-                if (Go == "UP") { platform.transform.Translate(Vector3.up * Time.deltaTime); col.transform.Translate(Vector3.up * Time.deltaTime); }
-                else if (Go == "DOWN") { platform.transform.Translate(Vector3.down * Time.deltaTime); col.transform.Translate(Vector3.down * Time.deltaTime); }
-                break;
-            case "LeftRight":
-                if (Go == "LEFT") { platform.transform.Translate(Vector3.left * Time.deltaTime); }
-                else if (Go == "RIGHT") { platform.transform.Translate(Vector3.right * Time.deltaTime);  }
-                break;
-        }
+        col.transform.parent = platform.transform;
+        Run();
     }
     private void Update()
     {
         moveTo();
-        if (auto){ Run();  }
+        if (auto) {  Run();  }
 
     }
   
     void Run()
     {
   
-            switch (tag)
-            {
-                case "UpDown":
-                    if (Go == "UP") { platform.transform.Translate(Vector3.up * Time.deltaTime); }
-                    else if (Go == "DOWN") { platform.transform.Translate(Vector3.down * Time.deltaTime); }
-                    break;
-            case "LeftRight":
-                if (Go == "LEFT") { platform.transform.Translate(Vector3.left * Time.deltaTime);}
-                else if (Go == "RIGHT") { platform.transform.Translate(Vector3.right * Time.deltaTime);}
-                break;
-        }
+            switch (Go) {
+            case "UP":platform.transform.Translate(Vector3.up * Time.deltaTime); break;
+            case "DOWN":platform.transform.Translate(Vector3.down * Time.deltaTime); break;
+            case "LEFT":platform.transform.Translate(Vector3.left * Time.deltaTime); break;
+            case "RIGHT":platform.transform.Translate(Vector3.right * Time.deltaTime); break; }
 
     }
 
@@ -66,12 +59,12 @@ public class PlatformMovementController : MonoBehaviour {
         switch (tag)
         {
             case "UpDown":
-                if (Mathf.Round(platform.transform.position.y) == 0f) { Go = "UP"; }
-                else if (Mathf.Round(platform.transform.position.y) == 4f) { Go = "DOWN"; }
+                if (Mathf.Round(platform.transform.position.y) == posY) { Go = "UP"; }
+                else if (Mathf.Round(platform.transform.position.y) == (posY + distance)) { Go = "DOWN"; }
                 break;
             case "LeftRight":
-                if (Mathf.Round(platform.transform.position.x) == 6f) { Go = "LEFT"; }
-                else if (Mathf.Round(platform.transform.position.x) == 4f) { Go = "RIGHT"; }
+                if (Mathf.Round(platform.transform.position.x) == posX) { Go = "LEFT"; }
+                else if (Mathf.Round(platform.transform.position.x) == (posX - distance)) { Go = "RIGHT"; }
                 break;
         }
 
