@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
 
     [SerializeField]  private float speedH = 2.0f,speedV = 2.0f;
-    private float Mx, My;
+    private float Mx, My=90;
  
     void Update()
     {
