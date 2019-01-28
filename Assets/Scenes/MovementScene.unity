@@ -993,7 +993,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 534669904}
-  m_PlaneDistance: 0.5
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1254,7 +1254,7 @@ GameObject:
   - component: {fileID: 1216946527}
   m_Layer: 0
   m_Name: CheckTrigger
-  m_TagString: LeftRight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1624,7 +1624,7 @@ GameObject:
   - component: {fileID: 1430094556}
   - component: {fileID: 1430094555}
   m_Layer: 0
-  m_Name: temp
+  m_Name: Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
