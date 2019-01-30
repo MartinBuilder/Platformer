@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour
 
     [SerializeField]  private GameObject Cam;
     [SerializeField]  private float speedH = 2.0f,speedV = 2.0f;
-    private float Mx, My;
- 
+    private float Mx, My = 90;
+
     void Update()
     {
         Mx = Mathf.Min(90, Mathf.Max(-90, Mx - Input.GetAxis("Mouse Y")*speedH));
