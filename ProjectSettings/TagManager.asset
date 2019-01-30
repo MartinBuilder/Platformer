@@ -7,6 +7,9 @@ TagManager:
   - Button
   - Elevator
   - PickUp
+  - UpDown
+  - Holder
+  - LeftRight
   layers:
   - Default
   - TransparentFX

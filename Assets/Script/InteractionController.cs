@@ -1,33 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class InteractionController : MonoBehaviour
 {
-   
-    private DoingController Do;
+
+    private GameObject hold;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Do = GameObject.Find("DoingController").GetComponent<DoingController>();
-        
+
     }
     void FixedUpdate()
     {
-      
- 
+     
+       
+        if (hold != null) { hold.transform.position = this.gameObject.transform.GetChild(0).transform.position;
+            if (Input.GetMouseButtonDown(1)) { if (hold.GetComponent<Rigidbody>()) { hold.GetComponent<Rigidbody>().useGravity = true; } hold = null; }}
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             if (Physics.Raycast(transform.position, fwd, out hit))
-            {
-              
-                    switch (hit.collider.gameObject.tag) { 
-                        case "PickUp": Do.hold = hit.collider.gameObject; Do.tag = hit.collider.tag; break;
-                        case "Elevator":
-                            if (hit.collider.gameObject.GetComponent<Renderer>().material.color != Color.green) { elevator.tag = hit.collider.tag + "UP";}
-                            else{ elevator.tag = hit.collider.tag + "Down";}break;}
+            {  
+
+                switch (hit.collider.gameObject.tag) { 
+                        case "PickUp": hold = hit.collider.gameObject;if (hold.GetComponent<Rigidbody>()) { hold.GetComponent<Rigidbody>().useGravity = false; } break;
+                        case "UpDown": case "LeftRight": hit.transform.parent.GetComponent<PlatformMovementController>().auto = false; hit.transform.parent.GetComponent<PlatformMovementController>().tag = hit.collider.tag; hit.collider.GetComponent<Renderer>().material.color = Color.green; break; 
+                }
 
               
                 
