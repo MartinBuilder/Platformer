@@ -66,14 +66,13 @@ public class PlatformMovementController : MonoBehaviour {
                 if (Mathf.Round(platform.transform.position.x) == posX) { Go = "LEFT"; }
                 else if (Mathf.Round(platform.transform.position.x) == (posX + distance)) { Go = "RIGHT"; }
                 break;
+            case "RightLeft":
+                if (Mathf.Round(platform.transform.position.x) == posX) { Go = "RIGHT"; }
+                else if (Mathf.Round(platform.transform.position.x) == (posX + distance)) { Go = "LEFT"; }
+                break;
         }
 
     }
-
- 
-
-    
-
 }
 
 

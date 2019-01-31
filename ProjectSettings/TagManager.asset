@@ -10,6 +10,7 @@ TagManager:
   - UpDown
   - Holder
   - LeftRight
+  - RightLeft
   layers:
   - Default
   - TransparentFX
