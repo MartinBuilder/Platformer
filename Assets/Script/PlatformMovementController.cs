@@ -47,10 +47,10 @@ public class PlatformMovementController : MonoBehaviour {
     {
   
             switch (Go) {
-            case "UP":platform.transform.Translate(Vector3.up * Time.deltaTime); break;
-            case "DOWN":platform.transform.Translate(Vector3.down * Time.deltaTime); break;
-            case "LEFT":platform.transform.Translate(Vector3.left * Time.deltaTime); break;
-            case "RIGHT":platform.transform.Translate(Vector3.right * Time.deltaTime); break; }
+            case "UP":platform.transform.Translate(Vector3.up * Time.deltaTime*2); break;
+            case "DOWN":platform.transform.Translate(Vector3.down * Time.deltaTime*2); break;
+            case "LEFT":platform.transform.Translate(Vector3.left * Time.deltaTime*3); break;
+            case "RIGHT":platform.transform.Translate(Vector3.right * Time.deltaTime*3); break; }
 
     }
 

@@ -23,7 +23,7 @@ public class InteractionController : MonoBehaviour
         {
             RaycastHit hit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            if (Physics.Raycast(transform.position, fwd, out hit,5))
+            if (Physics.Raycast(transform.position, fwd, out hit))
             {  
 
                 switch (hit.collider.gameObject.tag) { 
